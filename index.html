@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Motoyasu Suzuki Portfolio</title>
+<title>鈴木 元康 ポートフォリオ</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Senior Full-Stack & AI Engineer. Case studies of production systems built from scratch: AI SaaS, RAG, mobile apps, business systems, CAD and survey software.">
+<meta name="description" content="シニア フルスタック &amp; AIエンジニア。AI SaaS・RAG・モバイルアプリ・業務システム・CAD／測量ソフトなど、ゼロから構築した本番システムの事例集。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&display=swap">
@@ -23,9 +23,9 @@
   --line-soft:#e6ebea;
   --cobalt:#1f4fd1;     /* survey-marker blue, the single accent */
   --cobalt-soft:#e3eafb;
-  --f-display:'Archivo','Arial Narrow',Arial,sans-serif;
+  --f-display:'Archivo','Noto Sans JP','Arial Narrow',Arial,sans-serif;
   --f-body:'Source Sans 3','Noto Sans JP','Segoe UI',system-ui,sans-serif;
-  --f-mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
+  --f-mono:'JetBrains Mono','Noto Sans JP',ui-monospace,Consolas,monospace;
   --f-jp:'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif;
   --step-0:1.0625rem; --step-1:1.25rem; --step-2:1.6rem; --step-3:clamp(2.3rem,6.4vw,4.1rem);
 }
@@ -62,7 +62,7 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--cobalt); outline-o
 .label{font-family:var(--f-mono); font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-3)}
 
 /* ---------- title block / hero ---------- */
-.hero{padding-block:56px 40px; display:grid; gap:32px; grid-template-columns:1fr; align-items:end}
+.hero{padding-block:28px 40px; display:grid; gap:32px; grid-template-columns:1fr; align-items:end}
 @media (min-width:820px){ .hero{grid-template-columns:1fr 300px} }
 .hero h1{font-size:var(--step-3); font-weight:800; font-stretch:118%; line-height:0.98; text-transform:uppercase}
 .hero h1 .jp{display:block; font-size:0.32em; font-weight:500; letter-spacing:0.3em; margin-top:14px; color:var(--ink-2); text-transform:none; font-stretch:100%}
@@ -169,100 +169,117 @@ table.reg{width:100%; min-width:640px; border-collapse:collapse; font-size:0.95r
 .skill p{color:var(--ink-2); font-size:0.97rem}
 
 footer{margin-top:72px; padding-top:16px; border-top:1.5px solid var(--ink); display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; font-family:var(--f-mono); font-size:0.76rem; color:var(--ink-3)}
+
+/* ---------- language: Japanese by default, English with ?lang=en (or #en) ---------- */
+:root:not([data-lang="en"]) [data-l="en"]{display:none}
+:root[data-lang="en"] [data-l="ja"]{display:none}
+:root:not([data-lang="en"]) body{line-break:strict; word-break:normal; overflow-wrap:anywhere}
+@supports (word-break:auto-phrase){ :root:not([data-lang="en"]) body{word-break:auto-phrase} }
+:root:not([data-lang="en"]) .label, :root:not([data-lang="en"]) .tblock dt, :root:not([data-lang="en"]) .sheet aside dt, :root:not([data-lang="en"]) .bg dt{letter-spacing:0.04em}
+.langsw{display:flex; justify-content:flex-end; gap:0; padding-top:20px; font-family:var(--f-mono); font-size:0.78rem}
+.langsw a{padding:5px 12px; border:1px solid var(--line); background:var(--sheet); color:var(--ink-2); text-decoration:none}
+.langsw a + a{border-left:0}
+.langsw a[aria-current="true"]{background:var(--ink); border-color:var(--ink); color:var(--paper)}
+.langsw a:hover:not([aria-current="true"]){color:var(--cobalt); border-color:var(--cobalt)}
+.langsw a:focus-visible{outline:2px solid var(--cobalt); outline-offset:2px}
 </style>
 
 </head>
 <body>
 <div class="wrap">
 
+<nav class="langsw" aria-label="Language">
+  <a href="./" data-set="ja" lang="ja">日本語</a><a href="?lang=en" data-set="en" lang="en">English</a>
+</nav>
+
 <header class="hero">
   <div>
-    <div class="label">Senior Full-Stack &amp; AI Engineer · Greater Tokyo Area, Japan</div>
+    <div class="label"><span data-l="ja">シニア フルスタック &amp; AIエンジニア · 東京圏</span><span data-l="en">Senior Full-Stack &amp; AI Engineer · Greater Tokyo Area, Japan</span></div>
     <h1 style="margin-top:14px">Motoyasu<br>Suzuki<span class="jp">鈴木 元康</span></h1>
-    <p class="role">LLM · RAG · Multi-agent systems · TypeScript · Python</p>
-    <p class="thesis">I build whole systems on my own, from the first conversation with a client to production and handover. Below are the projects I designed and built from scratch or took over and shipped, with what was hard about each one.</p>
+    <p class="role"><span data-l="ja">LLM · RAG · マルチエージェント · TypeScript · Python</span><span data-l="en">LLM · RAG · Multi-agent systems · TypeScript · Python</span></p>
+    <p class="thesis"><span data-l="ja">お客様との最初の打ち合わせから本番運用・引き継ぎまで、システム全体を一人で作り上げます。以下は、ゼロから設計・開発した、または引き継いでリリースまで導いたプロジェクトと、それぞれで難しかった点です。</span><span data-l="en">I build whole systems on my own, from the first conversation with a client to production and handover. Below are the projects I designed and built from scratch or took over and shipped, with what was hard about each one.</span></p>
     <div class="contact">
-      <span>chikaiwoker072@gmail.com<button class="copy" type="button" id="copy-email" data-copy="chikaiwoker072@gmail.com">Copy</button></span>
+      <span>chikaiwoker072@gmail.com<button class="copy" type="button" id="copy-email" data-copy="chikaiwoker072@gmail.com">コピー</button></span>
       <a href="https://www.linkedin.com/in/suzuki-motoyasu-492b77400/" target="_blank" rel="noopener">LinkedIn ↗</a>
       <a href="https://github.com/suzuki0209" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
   </div>
   <div class="tblock" aria-label="Profile summary">
-    <img src="data:image/jpeg;base64,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" alt="Portrait of Motoyasu Suzuki">
+    <img src="data:image/jpeg;base64,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" alt="Motoyasu Suzuki">
     <dl>
-      <dt>Status</dt><dd><span class="status">Open to full-time roles</span></dd>
-      <dt>Experience</dt><dd>9 years (AI / LLM since 2023)</dd>
-      <dt>Languages</dt><dd>Japanese (native) · English (business writing)</dd>
-      <dt>Education</dt><dd>B.Sc. Computer Science, Kanagawa University</dd>
+      <dt><span data-l="ja">状況</span><span data-l="en">Status</span></dt><dd><span class="status"><span data-l="ja">正社員での転職を希望</span><span data-l="en">Open to full-time roles</span></span></dd>
+      <dt><span data-l="ja">経験</span><span data-l="en">Experience</span></dt><dd><span data-l="ja">9年（AI・LLMは2023年から）</span><span data-l="en">9 years (AI / LLM since 2023)</span></dd>
+      <dt><span data-l="ja">言語</span><span data-l="en">Languages</span></dt><dd><span data-l="ja">日本語（ネイティブ）· 英語（ビジネス文書）</span><span data-l="en">Japanese (native) · English (business writing)</span></dd>
+      <dt><span data-l="ja">学歴</span><span data-l="en">Education</span></dt><dd><span data-l="ja">神奈川大学 コンピュータサイエンス学科 卒業</span><span data-l="en">B.Sc. Computer Science, Kanagawa University</span></dd>
     </dl>
   </div>
 </header>
 
 <div class="readouts" aria-label="Key figures">
-  <div class="readout"><b>50K+</b><span>monthly users on the AI SaaS platform I architected</span></div>
-  <div class="readout"><b>200K+</b><span>documents searchable through the RAG pipeline</span></div>
-  <div class="readout"><b>8</b><span>core systems built or shipped since 2023</span></div>
-  <div class="readout"><b>10K+</b><span>LLM requests a day through the inference pipelines I built</span></div>
+  <div class="readout"><b>50K+</b><span><span data-l="ja">設計・開発したAI SaaSプラットフォームの月間ユーザー数</span><span data-l="en">monthly users on the AI SaaS platform I architected</span></span></div>
+  <div class="readout"><b>200K+</b><span><span data-l="ja">RAGパイプラインで検索できるドキュメント数</span><span data-l="en">documents searchable through the RAG pipeline</span></span></div>
+  <div class="readout"><b>8</b><span><span data-l="ja">2023年以降に構築・リリースした主要システム</span><span data-l="en">core systems built or shipped since 2023</span></span></div>
+  <div class="readout"><b>10K+</b><span><span data-l="ja">構築した推論パイプラインが1日に処理するLLMリクエスト数</span><span data-l="en">LLM requests a day through the inference pipelines I built</span></span></div>
 </div>
 
 <!-- ======================= REGISTER ======================= -->
 <section id="works" aria-labelledby="works-h">
   <div class="shead">
-    <h2 id="works-h">Index of works</h2>
+    <h2 id="works-h"><span data-l="ja">制作実績一覧</span><span data-l="en">Index of works</span></h2>
     <div class="filters" role="group" aria-label="Filter projects">
-      <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
-      <button type="button" id="f-ai" data-f="ai" aria-pressed="false">AI &amp; LLM</button>
-      <button type="button" id="f-biz" data-f="biz" aria-pressed="false">Business systems</button>
-      <button type="button" id="f-mobile" data-f="mobile" aria-pressed="false">Mobile &amp; desktop</button>
-      <button type="button" id="f-cad" data-f="cad" aria-pressed="false">CAD, survey &amp; land</button>
+      <button type="button" id="f-all" data-f="all" aria-pressed="true"><span data-l="ja">すべて</span><span data-l="en">All</span></button>
+      <button type="button" id="f-ai" data-f="ai" aria-pressed="false"><span data-l="ja">AI・LLM</span><span data-l="en">AI &amp; LLM</span></button>
+      <button type="button" id="f-biz" data-f="biz" aria-pressed="false"><span data-l="ja">業務システム</span><span data-l="en">Business systems</span></button>
+      <button type="button" id="f-mobile" data-f="mobile" aria-pressed="false"><span data-l="ja">モバイル・デスクトップ</span><span data-l="en">Mobile &amp; desktop</span></button>
+      <button type="button" id="f-cad" data-f="cad" aria-pressed="false"><span data-l="ja">CAD・測量・土地</span><span data-l="en">CAD, survey &amp; land</span></button>
     </div>
   </div>
   <div class="reg-wrap">
     <table class="reg">
-      <thead><tr><th>Code</th><th>Project</th><th>Period</th><th>Role</th><th>Discipline</th></tr></thead>
+      <thead><tr><th><span data-l="ja">番号</span><span data-l="en">Code</span></th><th><span data-l="ja">プロジェクト</span><span data-l="en">Project</span></th><th><span data-l="ja">期間</span><span data-l="en">Period</span></th><th><span data-l="ja">役割</span><span data-l="en">Role</span></th><th><span data-l="ja">分野</span><span data-l="en">Discipline</span></th></tr></thead>
       <tbody id="reg-body">
-        <tr data-cat="mobile"><td class="code">L-01</td><td><a href="#l-01">BagHop Driver</a><span class="sub">Luggage-delivery driver app, iOS and Android</span></td><td class="per">2026.07–2026.10</td><td>Solo, takeover</td><td><span class="tag">Mobile</span></td></tr>
-        <tr data-cat="biz"><td class="code">L-02</td><td><a href="#l-02">Carbey</a><span class="sub">Automotive platform of three systems</span></td><td class="per">2026.04–2026.06</td><td>Solo, takeover</td><td><span class="tag">Business system</span><span class="tag">Data pipeline</span></td></tr>
-        <tr data-cat="biz"><td class="code">L-03</td><td><a href="#l-03">GL-DX</a><span class="sub">Business system for a luxury-brand resale company</span></td><td class="per">2026.02–2026.04</td><td>Solo, from scratch</td><td><span class="tag">Business system</span></td></tr>
-        <tr data-cat="ai"><td class="code">S-01</td><td><a href="#s-01">AI SaaS Platform</a><span class="sub">RAG, LLM pipelines and multi-agent workflows</span></td><td class="per">2023.10–2026.01</td><td>Architecture &amp; development</td><td><span class="tag">AI &amp; LLM</span></td></tr>
-        <tr data-cat="ai cad"><td class="code">S-02</td><td><a href="#s-02">ICT Construction Plan System</a><span class="sub">LLM drafts civil-engineering construction plans</span></td><td class="per">2025.10–2026.01</td><td>Solo, from scratch</td><td><span class="tag">AI &amp; LLM</span><span class="tag">Civil engineering</span></td></tr>
-        <tr data-cat="cad biz"><td class="code">S-03</td><td><a href="#s-03">Land-Acquisition Toolkit</a><span class="sub">Lot plans, building volume and purchase reports</span></td><td class="per">2025.06–2025.09</td><td>Solo, from scratch</td><td><span class="tag">Real estate</span><span class="tag">Geometry</span></td></tr>
-        <tr data-cat="cad mobile"><td class="code">S-04</td><td><a href="#s-04">Land-CAD GNSS Integration</a><span class="sub">Survey-grade GNSS receiver in a desktop CAD app</span></td><td class="per">2024.12–2025.05</td><td>Solo, from scratch</td><td><span class="tag">Survey</span><span class="tag">Desktop</span></td></tr>
-        <tr data-cat="cad mobile"><td class="code">S-05</td><td><a href="#s-05">DXF Platform</a><span class="sub">2D civil drawings to 3D LandXML surfaces</span></td><td class="per">2024.06–2024.11</td><td>Solo, from scratch</td><td><span class="tag">CAD</span><span class="tag">Desktop</span></td></tr>
+        <tr data-cat="mobile"><td class="code">L-01</td><td><a href="#l-01">BagHop Driver</a><span class="sub"><span data-l="ja">手荷物配送サービスのドライバーアプリ（iOS・Android）</span><span data-l="en">Luggage-delivery driver app, iOS and Android</span></span></td><td class="per">2026.07–2026.10</td><td><span data-l="ja">単独・引き継ぎ</span><span data-l="en">Solo, takeover</span></td><td><span class="tag"><span data-l="ja">モバイル</span><span data-l="en">Mobile</span></span></td></tr>
+        <tr data-cat="biz"><td class="code">L-02</td><td><a href="#l-02">Carbey</a><span class="sub"><span data-l="ja">3つのシステムで構成される自動車プラットフォーム</span><span data-l="en">Automotive platform of three systems</span></span></td><td class="per">2026.04–2026.06</td><td><span data-l="ja">単独・引き継ぎ</span><span data-l="en">Solo, takeover</span></td><td><span class="tag"><span data-l="ja">業務システム</span><span data-l="en">Business system</span></span><span class="tag"><span data-l="ja">データパイプライン</span><span data-l="en">Data pipeline</span></span></td></tr>
+        <tr data-cat="biz"><td class="code">L-03</td><td><a href="#l-03">GL-DX</a><span class="sub"><span data-l="ja">ブランド品買取・販売会社の業務システム</span><span data-l="en">Business system for a luxury-brand resale company</span></span></td><td class="per">2026.02–2026.04</td><td><span data-l="ja">単独・新規開発</span><span data-l="en">Solo, from scratch</span></td><td><span class="tag"><span data-l="ja">業務システム</span><span data-l="en">Business system</span></span></td></tr>
+        <tr data-cat="ai"><td class="code">S-01</td><td><a href="#s-01"><span data-l="ja">AI SaaSプラットフォーム</span><span data-l="en">AI SaaS Platform</span></a><span class="sub"><span data-l="ja">RAG・LLMパイプライン・マルチエージェントワークフロー</span><span data-l="en">RAG, LLM pipelines and multi-agent workflows</span></span></td><td class="per">2023.10–2026.01</td><td><span data-l="ja">設計・開発</span><span data-l="en">Architecture &amp; development</span></td><td><span class="tag"><span data-l="ja">AI・LLM</span><span data-l="en">AI &amp; LLM</span></span></td></tr>
+        <tr data-cat="ai cad"><td class="code">S-02</td><td><a href="#s-02"><span data-l="ja">ICT施工計画書システム</span><span data-l="en">ICT Construction Plan System</span></a><span class="sub"><span data-l="ja">土木工事の施工計画書をLLMが下書き</span><span data-l="en">LLM drafts civil-engineering construction plans</span></span></td><td class="per">2025.07–2026.01</td><td><span data-l="ja">単独・新規開発</span><span data-l="en">Solo, from scratch</span></td><td><span class="tag"><span data-l="ja">AI・LLM</span><span data-l="en">AI &amp; LLM</span></span><span class="tag"><span data-l="ja">土木</span><span data-l="en">Civil engineering</span></span></td></tr>
+        <tr data-cat="cad biz"><td class="code">S-03</td><td><a href="#s-03"><span data-l="ja">建売仕入支援ツール</span><span data-l="en">Land-Acquisition Toolkit</span></a><span class="sub"><span data-l="ja">区割・建物ボリューム・仕入会議資料</span><span data-l="en">Lot plans, building volume and purchase reports</span></span></td><td class="per">2025.06–2025.08</td><td><span data-l="ja">単独・新規開発</span><span data-l="en">Solo, from scratch</span></td><td><span class="tag"><span data-l="ja">不動産</span><span data-l="en">Real estate</span></span><span class="tag"><span data-l="ja">幾何計算</span><span data-l="en">Geometry</span></span></td></tr>
+        <tr data-cat="cad mobile"><td class="code">S-04</td><td><a href="#s-04"><span data-l="ja">Land-CAD GNSS連携</span><span data-l="en">Land-CAD GNSS Integration</span></a><span class="sub"><span data-l="ja">測量用GNSS受信機をデスクトップCADアプリに統合</span><span data-l="en">Survey-grade GNSS receiver in a desktop CAD app</span></span></td><td class="per">2024.12–2025.04</td><td><span data-l="ja">単独・新規開発</span><span data-l="en">Solo, from scratch</span></td><td><span class="tag"><span data-l="ja">測量</span><span data-l="en">Survey</span></span><span class="tag"><span data-l="ja">デスクトップ</span><span data-l="en">Desktop</span></span></td></tr>
+        <tr data-cat="cad mobile"><td class="code">S-05</td><td><a href="#s-05"><span data-l="ja">DXFプラットフォーム</span><span data-l="en">DXF Platform</span></a><span class="sub"><span data-l="ja">2D土木図面から3D LandXMLサーフェスを生成</span><span data-l="en">2D civil drawings to 3D LandXML surfaces</span></span></td><td class="per">2024.06–2024.12</td><td><span data-l="ja">単独・新規開発</span><span data-l="en">Solo, from scratch</span></td><td><span class="tag">CAD</span><span class="tag"><span data-l="ja">デスクトップ</span><span data-l="en">Desktop</span></span></td></tr>
       </tbody>
     </table>
-    <p class="empty" id="reg-empty" hidden>No projects in this group.</p>
+    <p class="empty" id="reg-empty" hidden><span data-l="ja">この分野のプロジェクトはありません。</span><span data-l="en">No projects in this group.</span></p>
   </div>
 </section>
 
 <!-- ======================= LANCERS ======================= -->
 <section aria-labelledby="cases-h">
-  <div class="shead"><h2 id="cases-h">Case sheets</h2><span class="label">Newest first, grouped by employer</span></div>
+  <div class="shead"><h2 id="cases-h"><span data-l="ja">プロジェクト詳細</span><span data-l="en">Case sheets</span></h2><span class="label"><span data-l="ja">新しい順・所属別</span><span data-l="en">Newest first, grouped by employer</span></span></div>
 
   <div class="group">
     <div class="group-head">
-      <span class="label">L · Freelance via Lancers · Feb 2026 – present</span>
-      <h3>Contract systems for Japanese businesses</h3>
-      <p>Each project delivered alone, working directly with the client: requirements, architecture, development, deployment and support.</p>
+      <span class="label"><span data-l="ja">L · ランサーズ経由のフリーランス · 2026年2月〜現在</span><span data-l="en">L · Freelance via Lancers · Feb 2026 – present</span></span>
+      <h3><span data-l="ja">日本企業向けの受託システム開発</span><span data-l="en">Contract systems for Japanese businesses</span></h3>
+      <p><span data-l="ja">各プロジェクトを一人で担当し、お客様と直接やり取りしながら、要件定義・設計・開発・デプロイ・保守まで行いました。</span><span data-l="en">Each project delivered alone, working directly with the client: requirements, architecture, development, deployment and support.</span></p>
     </div>
 
     <article class="sheet" id="l-01" data-cat="mobile">
       <div class="body">
-        <div class="code">L-01 · Mobile</div>
+        <div class="code"><span data-l="ja">L-01 · モバイル</span><span data-l="en">L-01 · Mobile</span></div>
         <h4>BagHop Driver</h4>
-        <p class="lede">I took over an unreleased driver app for a luggage-delivery service and shipped it to both app stores. It wraps the client's Bubble web app in React Native and adds what a web app cannot do: background GPS, push alerts for nearby pickups, luggage photos and the permission flows they need.</p>
+        <p class="lede"><span data-l="ja">手荷物配送サービスの未リリースのドライバーアプリを引き継ぎ、両ストアでリリースしました。お客様のBubble製WebアプリをReact Nativeでラップし、Webアプリではできない機能（バックグラウンドGPS、近くの集荷依頼のプッシュ通知、荷物の写真撮影と、それに必要な権限フロー）を追加しました。</span><span data-l="en">I took over an unreleased driver app for a luggage-delivery service and shipped it to both app stores. It wraps the client's Bubble web app in React Native and adds what a web app cannot do: background GPS, push alerts for nearby pickups, luggage photos and the permission flows they need.</span></p>
         <ul class="points">
-          <li><b>Store release.</b> Shipped to Google Play, and to the App Store through Unlisted App Distribution after resolving a rejection under App Review Guideline 3.2. Built iOS releases without a Mac on Codemagic CI.</li>
-          <li><b>Platform upgrade.</b> Google Play now requires 16 KB memory pages. I tested published builds to find the lowest React Native version that met it, then upgraded 0.73 → 0.77 across Gradle, AGP, Kotlin, NDK and AppDelegate. The final bundle had zero misaligned native libraries, targeting SDK 36.</li>
-          <li><b>Location and push.</b> Continuous background location (a Kotlin foreground service on Android, background updates on iOS), push to every device a driver uses with dead tokens pruned, and a high-importance channel so pickup alerts show as banners.</li>
-          <li><b>Remote debugging.</b> Found production bugs from nginx logs and Firestore alone, such as a status poller tracking the wrong driver after re-login, and a login handler where a failed push token silently stopped GPS.</li>
+          <li><span data-l="ja"><b>ストア公開。</b>Google Playで公開し、App StoreではApp Store審査ガイドライン3.2によるリジェクトを解消したうえで、Unlisted App Distribution（非表示配布）で公開しました。MacなしでCodemagic CIを使ってiOSのリリースビルドを作成しました。</span><span data-l="en"><b>Store release.</b> Shipped to Google Play, and to the App Store through Unlisted App Distribution after resolving a rejection under App Review Guideline 3.2. Built iOS releases without a Mac on Codemagic CI.</span></li>
+          <li><span data-l="ja"><b>プラットフォームの更新。</b>Google Playで必須になった16KBメモリページに対応するため、公開済みのビルドを検証して要件を満たす最も低いReact Nativeのバージョンを特定し、Gradle・AGP・Kotlin・NDK・AppDelegateを含めて0.73から0.77へ更新しました。最終バンドルはアライメント不正のネイティブライブラリがゼロで、ターゲットSDKは36です。</span><span data-l="en"><b>Platform upgrade.</b> Google Play now requires 16 KB memory pages. I tested published builds to find the lowest React Native version that met it, then upgraded 0.73 → 0.77 across Gradle, AGP, Kotlin, NDK and AppDelegate. The final bundle had zero misaligned native libraries, targeting SDK 36.</span></li>
+          <li><span data-l="ja"><b>位置情報とプッシュ通知。</b>継続的なバックグラウンド位置取得（AndroidはKotlinのフォアグラウンドサービス、iOSはバックグラウンド更新）、ドライバーが使うすべての端末へのプッシュ配信と無効トークンの削除、集荷通知をバナー表示させるための重要度の高い通知チャネルを実装しました。</span><span data-l="en"><b>Location and push.</b> Continuous background location (a Kotlin foreground service on Android, background updates on iOS), push to every device a driver uses with dead tokens pruned, and a high-importance channel so pickup alerts show as banners.</span></li>
+          <li><span data-l="ja"><b>リモートでの不具合調査。</b>nginxのログとFirestoreだけを手がかりに本番の不具合を特定しました。たとえば、再ログイン後にステータスのポーリングが別のドライバーを追っていた問題や、プッシュトークンの取得に失敗するとGPSが黙って止まっていたログイン処理です。</span><span data-l="en"><b>Remote debugging.</b> Found production bugs from nginx logs and Firestore alone, such as a status poller tracking the wrong driver after re-login, and a login handler where a failed push token silently stopped GPS.</span></li>
         </ul>
         <div class="stack"><span class="tag">React Native 0.77</span><span class="tag">TypeScript</span><span class="tag">Kotlin</span><span class="tag">Express</span><span class="tag">Firestore</span><span class="tag">Firebase Cloud Messaging</span><span class="tag">Bubble</span><span class="tag">nginx · PM2</span><span class="tag">Codemagic</span></div>
       </div>
       <aside><dl>
-        <dt>Period</dt><dd>Jul – Sep 2026, live on the App Store Oct 2026</dd>
-        <dt>Role</dt><dd>Solo developer, takeover of an unreleased app</dd>
-        <dt>Result</dt><dd class="big">Live on both stores</dd>
+        <dt><span data-l="ja">期間</span><span data-l="en">Period</span></dt><dd><span data-l="ja">2026年7月〜9月（App Store公開は2026年10月）</span><span data-l="en">Jul – Sep 2026, live on the App Store Oct 2026</span></dd>
+        <dt><span data-l="ja">役割</span><span data-l="en">Role</span></dt><dd><span data-l="ja">単独開発者（未リリースアプリの引き継ぎ）</span><span data-l="en">Solo developer, takeover of an unreleased app</span></dd>
+        <dt><span data-l="ja">成果</span><span data-l="en">Result</span></dt><dd class="big"><span data-l="ja">両ストアで公開中</span><span data-l="en">Live on both stores</span></dd>
         <dt>App Store</dt><dd><a href="https://apps.apple.com/jp/app/baghopdriver/id6808541567" target="_blank" rel="noopener">apps.apple.com/jp/app/baghopdriver ↗</a></dd>
         <dt>Google Play</dt><dd><a href="https://play.google.com/store/apps/details?id=jp.baghop.driver" target="_blank" rel="noopener">jp.baghop.driver ↗</a></dd>
       </dl></aside>
@@ -270,42 +287,42 @@ footer{margin-top:72px; padding-top:16px; border-top:1.5px solid var(--ink); dis
 
     <article class="sheet" id="l-02" data-cat="biz">
       <div class="body">
-        <div class="code">L-02 · Business system · Data pipeline</div>
-        <h4>Carbey automotive platform</h4>
-        <p class="lede">I took over, mid-contract, three systems sharing one database: a corporate site and landing page, a franchise portal for contracts and billing, and a market-data pipeline that scrapes car listings every 15 minutes.</p>
+        <div class="code"><span data-l="ja">L-02 · 業務システム · データパイプライン</span><span data-l="en">L-02 · Business system · Data pipeline</span></div>
+        <h4><span data-l="ja">Carbey 自動車プラットフォーム</span><span data-l="en">Carbey automotive platform</span></h4>
+        <p class="lede"><span data-l="ja">1つのデータベースを共有する3つのシステムを、契約の途中から引き継ぎました。コーポレートサイトとLP、契約・請求を管理するフランチャイズポータル、15分ごとに中古車の掲載情報を収集する市場データパイプラインです。</span><span data-l="en">I took over, mid-contract, three systems sharing one database: a corporate site and landing page, a franchise portal for contracts and billing, and a market-data pipeline that scrapes car listings every 15 minutes.</span></p>
         <ul class="points">
-          <li><b>Diagnosis.</b> The dashboard was stuck on "acquiring" and the pipeline looked broken. It was healthy. The real cause was Server Actions drift between the frontend and backend deployments. Fixing it brought back 48 hours of collected data at once.</li>
-          <li><b>Delivery.</b> Restructured the landing page with CMS and admin controls, added a LINE contact flow, and finished acceptance fixes on the franchise portal.</li>
-          <li><b>Handover.</b> Documented the full architecture, audited every access point across Vercel, Netlify, Supabase, GitHub and the VPS, and wrote a 10-section handover document.</li>
+          <li><span data-l="ja"><b>原因の特定。</b>ダッシュボードが「取得中」のまま止まり、パイプラインが壊れているように見えましたが、パイプライン自体は正常でした。本当の原因はフロントエンドとバックエンドのデプロイ間で起きたServer Actionsの不整合で、修正すると48時間分の収集データが一度に表示されました。</span><span data-l="en"><b>Diagnosis.</b> The dashboard was stuck on "acquiring" and the pipeline looked broken. It was healthy. The real cause was Server Actions drift between the frontend and backend deployments. Fixing it brought back 48 hours of collected data at once.</span></li>
+          <li><span data-l="ja"><b>開発。</b>LPをCMSと管理機能つきで作り直し、LINEでの問い合わせ導線を追加し、フランチャイズポータルの検収対応を完了しました。</span><span data-l="en"><b>Delivery.</b> Restructured the landing page with CMS and admin controls, added a LINE contact flow, and finished acceptance fixes on the franchise portal.</span></li>
+          <li><span data-l="ja"><b>引き継ぎ。</b>アーキテクチャ全体を文書化し、Vercel・Netlify・Supabase・GitHub・VPSのすべてのアクセス権を棚卸しして、10章構成の引き継ぎ資料を作成しました。</span><span data-l="en"><b>Handover.</b> Documented the full architecture, audited every access point across Vercel, Netlify, Supabase, GitHub and the VPS, and wrote a 10-section handover document.</span></li>
         </ul>
         <div class="stack"><span class="tag">React 18 · Vite</span><span class="tag">Next.js 15</span><span class="tag">Tailwind CSS</span><span class="tag">Supabase (PostgreSQL)</span><span class="tag">Python · Playwright</span><span class="tag">Vercel · Netlify</span><span class="tag">VPS · cron · PM2</span></div>
       </div>
       <aside><dl>
-        <dt>Period</dt><dd>Apr – Jun 2026</dd>
-        <dt>Role</dt><dd>Full-stack engineer, mid-contract takeover</dd>
-        <dt>Data</dt><dd class="big">~5.8M listings indexed</dd>
-        <dt>Systems</dt><dd>3 apps, 1 shared database</dd>
+        <dt><span data-l="ja">期間</span><span data-l="en">Period</span></dt><dd><span data-l="ja">2026年4月〜6月</span><span data-l="en">Apr – Jun 2026</span></dd>
+        <dt><span data-l="ja">役割</span><span data-l="en">Role</span></dt><dd><span data-l="ja">フルスタックエンジニア（契約途中での引き継ぎ）</span><span data-l="en">Full-stack engineer, mid-contract takeover</span></dd>
+        <dt><span data-l="ja">データ</span><span data-l="en">Data</span></dt><dd class="big"><span data-l="ja">約580万件の掲載情報</span><span data-l="en">~5.8M listings indexed</span></dd>
+        <dt><span data-l="ja">システム</span><span data-l="en">Systems</span></dt><dd><span data-l="ja">3アプリ・共有データベース1つ</span><span data-l="en">3 apps, 1 shared database</span></dd>
       </dl></aside>
     </article>
 
     <article class="sheet" id="l-03" data-cat="biz">
       <div class="body">
-        <div class="code">L-03 · Business system</div>
+        <div class="code"><span data-l="ja">L-03 · 業務システム</span><span data-l="en">L-03 · Business system</span></div>
         <h4>GL-DX <span class="jp">ブランド買取・販売 業務システム</span></h4>
-        <p class="lede">For a luxury-brand resale company I designed and built one system covering purchasing, inventory, sales channels, shipping and accounting for headquarters, plus a separate portal for franchise stores. The first version shipped within two months and is in daily use by HQ, accounting and the stores.</p>
+        <p class="lede"><span data-l="ja">ブランド品の買取・販売会社向けに、本部の仕入・在庫・販売チャネル・出荷・会計を一つにまとめたシステムと、フランチャイズ店舗向けのポータルを設計・開発しました。初版は2か月以内にリリースし、本部・経理・店舗で毎日使われています。</span><span data-l="en">For a luxury-brand resale company I designed and built one system covering purchasing, inventory, sales channels, shipping and accounting for headquarters, plus a separate portal for franchise stores. The first version shipped within two months and is in daily use by HQ, accounting and the stores.</span></p>
         <ul class="points">
-          <li><b>Inventory and scanning.</b> Code128 labels sized for the client's label printer, and phone-camera scanning for shelf location, inspection, photography, listing, packing and shipping. I moved the system to HTTPS so phone cameras would work.</li>
-          <li><b>Sales channels.</b> eBay listings and orders through the API with DeepL Japanese → English translation, and a Mercari Shops export that matches the official 88-column import template.</li>
-          <li><b>Franchise flow.</b> Designed the store intake process with the client over four production iterations: approval requests, HQ price checks, batch shipments, results and per-shipment payment requests.</li>
-          <li><b>Legal documents.</b> Delivery notes, receipts and certificates of sale as PDFs that follow Japan's Secondhand Articles Dealer Act (<span class="jp">古物営業法</span>), with tax breakdown and invoice registration number.</li>
+          <li><span data-l="ja"><b>在庫管理とスキャン。</b>お客様のラベルプリンターに合わせたCode128ラベルと、スマートフォンのカメラによるスキャン（棚番・検品・撮影・出品・梱包・出荷）を実装しました。カメラを使えるよう、システムをHTTPS化しました。</span><span data-l="en"><b>Inventory and scanning.</b> Code128 labels sized for the client's label printer, and phone-camera scanning for shelf location, inspection, photography, listing, packing and shipping. I moved the system to HTTPS so phone cameras would work.</span></li>
+          <li><span data-l="ja"><b>販売チャネル。</b>eBay APIによる出品・受注の連携（DeepLで日本語から英語へ翻訳）と、公式の88列インポートテンプレートに準拠したメルカリShops用のエクスポートを実装しました。</span><span data-l="en"><b>Sales channels.</b> eBay listings and orders through the API with DeepL Japanese → English translation, and a Mercari Shops export that matches the official 88-column import template.</span></li>
+          <li><span data-l="ja"><b>フランチャイズのフロー。</b>店舗からの買取品の受け入れフローを、本番での4回の改善を通じてお客様と一緒に設計しました。承認申請、本部での価格確認、一括発送、結果の通知、発送ごとの支払申請までを扱います。</span><span data-l="en"><b>Franchise flow.</b> Designed the store intake process with the client over four production iterations: approval requests, HQ price checks, batch shipments, results and per-shipment payment requests.</span></li>
+          <li><span data-l="ja"><b>法定書類。</b>古物営業法に沿った納品書・領収書・買取証明書を、税額の内訳とインボイス登録番号つきのPDFで出力します。</span><span data-l="en"><b>Legal documents.</b> Delivery notes, receipts and certificates of sale as PDFs that follow Japan's Secondhand Articles Dealer Act (<span class="jp">古物営業法</span>), with tax breakdown and invoice registration number.</span></li>
         </ul>
         <div class="stack"><span class="tag">Next.js 15</span><span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">FastAPI</span><span class="tag">SQLAlchemy 2.0</span><span class="tag">PostgreSQL 16</span><span class="tag">AWS S3</span><span class="tag">ZXing</span><span class="tag">ReportLab</span><span class="tag">eBay API · DeepL</span><span class="tag">SendGrid</span></div>
       </div>
       <aside><dl>
-        <dt>Period</dt><dd>Feb – Apr 2026</dd>
-        <dt>Role</dt><dd>Solo full-stack developer, from scratch</dd>
-        <dt>Size</dt><dd class="big">17 APIs · 25+ screens</dd>
-        <dt>Time to first release</dt><dd>2 months</dd>
+        <dt><span data-l="ja">期間</span><span data-l="en">Period</span></dt><dd><span data-l="ja">2026年2月〜4月</span><span data-l="en">Feb – Apr 2026</span></dd>
+        <dt><span data-l="ja">役割</span><span data-l="en">Role</span></dt><dd><span data-l="ja">単独のフルスタック開発者（新規開発）</span><span data-l="en">Solo full-stack developer, from scratch</span></dd>
+        <dt><span data-l="ja">規模</span><span data-l="en">Size</span></dt><dd class="big"><span data-l="ja">API 17本 · 25画面以上</span><span data-l="en">17 APIs · 25+ screens</span></dd>
+        <dt><span data-l="ja">初回リリースまで</span><span data-l="en">Time to first release</span></dt><dd><span data-l="ja">2か月</span><span data-l="en">2 months</span></dd>
       </dl></aside>
     </article>
   </div>
@@ -313,115 +330,115 @@ footer{margin-top:72px; padding-top:16px; border-top:1.5px solid var(--ink); dis
   <!-- ======================= SAKANA AI ======================= -->
   <div class="group">
     <div class="group-head">
-      <span class="label">S · Sakana AI · Full-time · Oct 2023 – Jan 2026</span>
-      <h3>Senior Full-Stack &amp; AI Engineer</h3>
-      <p>Full-time engineer in an 11-member department of a company of about 200. I worked on many projects; these five are the core ones I designed and built from scratch. When project managers were busy, I worked with clients directly on requirements and acceptance.</p>
+      <span class="label"><span data-l="ja">S · Sakana AI · 正社員 · 2023年10月〜2026年1月</span><span data-l="en">S · Sakana AI · Full-time · Oct 2023 – Jan 2026</span></span>
+      <h3><span data-l="ja">シニア フルスタック &amp; AIエンジニア</span><span data-l="en">Senior Full-Stack &amp; AI Engineer</span></h3>
+      <p><span data-l="ja">従業員約200名の会社で、11名の部署に所属する正社員エンジニアとして多くのプロジェクトに携わりました。以下の5件は、私がゼロから設計・開発した主要プロジェクトです。プロジェクトマネージャーが手一杯のときは、要件定義や検収でお客様と直接やり取りしました。</span><span data-l="en">Full-time engineer in an 11-member department of a company of about 200. I worked on many projects; these five are the core ones I designed and built from scratch. When project managers were busy, I worked with clients directly on requirements and acceptance.</span></p>
     </div>
 
     <article class="sheet" id="s-01" data-cat="ai">
       <div class="body">
-        <div class="code">S-01 · AI &amp; LLM</div>
-        <h4>AI SaaS platform with RAG and multi-agent workflows</h4>
-        <p class="lede">I architected and developed the company's AI SaaS platform on Next.js, FastAPI and PostgreSQL. It serves more than 50,000 users a month.</p>
+        <div class="code"><span data-l="ja">S-01 · AI・LLM</span><span data-l="en">S-01 · AI &amp; LLM</span></div>
+        <h4><span data-l="ja">RAGとマルチエージェントを備えたAI SaaSプラットフォーム</span><span data-l="en">AI SaaS platform with RAG and multi-agent workflows</span></h4>
+        <p class="lede"><span data-l="ja">Next.js・FastAPI・PostgreSQLで、会社のAI SaaSプラットフォームの設計と開発を担当しました。月間5万人以上が利用しています。</span><span data-l="en">I architected and developed the company's AI SaaS platform on Next.js, FastAPI and PostgreSQL. It serves more than 50,000 users a month.</span></p>
         <ul class="points">
-          <li><b>RAG.</b> Retrieval over more than 200,000 documents using OpenAI embeddings and vector databases, with automated ingestion of PDFs, web content and structured data.</li>
-          <li><b>LLM pipelines.</b> Inference pipelines on Python, Redis queues and distributed workers, handling more than 10,000 requests a day with low latency.</li>
-          <li><b>Multi-agent workflows.</b> Autonomous workflows and task orchestration built with LangChain and LangGraph.</li>
-          <li><b>Real-time chat.</b> Streaming AI chat with React, WebSockets and streaming APIs.</li>
-          <li><b>Answer quality.</b> Prompt and retrieval tuning cut the hallucination rate by 35% and improved answer accuracy.</li>
+          <li><span data-l="ja"><b>RAG。</b>OpenAIの埋め込みとベクトルデータベースで20万件以上のドキュメントを検索できるようにし、PDF・Webコンテンツ・構造化データの取り込みを自動化しました。</span><span data-l="en"><b>RAG.</b> Retrieval over more than 200,000 documents using OpenAI embeddings and vector databases, with automated ingestion of PDFs, web content and structured data.</span></li>
+          <li><span data-l="ja"><b>LLMパイプライン。</b>Python・Redisキュー・分散ワーカーによる推論パイプラインで、1日1万件以上のリクエストを低レイテンシで処理しています。</span><span data-l="en"><b>LLM pipelines.</b> Inference pipelines on Python, Redis queues and distributed workers, handling more than 10,000 requests a day with low latency.</span></li>
+          <li><span data-l="ja"><b>マルチエージェントワークフロー。</b>LangChainとLangGraphで、自律的なワークフローとタスクのオーケストレーションを構築しました。</span><span data-l="en"><b>Multi-agent workflows.</b> Autonomous workflows and task orchestration built with LangChain and LangGraph.</span></li>
+          <li><span data-l="ja"><b>リアルタイムチャット。</b>React・WebSocket・ストリーミングAPIによる、ストリーミング型のAIチャットを実装しました。</span><span data-l="en"><b>Real-time chat.</b> Streaming AI chat with React, WebSockets and streaming APIs.</span></li>
+          <li><span data-l="ja"><b>回答品質。</b>プロンプトと検索のチューニングでハルシネーション率を35%下げ、回答精度を高めました。</span><span data-l="en"><b>Answer quality.</b> Prompt and retrieval tuning cut the hallucination rate by 35% and improved answer accuracy.</span></li>
         </ul>
         <div class="stack"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">FastAPI</span><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">OpenAI API</span><span class="tag">Vector DB</span><span class="tag">LangChain · LangGraph</span><span class="tag">Redis</span><span class="tag">WebSockets</span></div>
       </div>
       <aside><dl>
-        <dt>Period</dt><dd>Oct 2023 – Jan 2026</dd>
-        <dt>Team</dt><dd>11-member department, cross-functional</dd>
-        <dt>Users</dt><dd class="big">50K+ / month</dd>
-        <dt>Throughput</dt><dd>10K+ LLM requests / day</dd>
-        <dt>Hallucination</dt><dd>−35%</dd>
+        <dt><span data-l="ja">期間</span><span data-l="en">Period</span></dt><dd><span data-l="ja">2023年10月〜2026年1月</span><span data-l="en">Oct 2023 – Jan 2026</span></dd>
+        <dt><span data-l="ja">チーム</span><span data-l="en">Team</span></dt><dd><span data-l="ja">11名の部署（職種横断）</span><span data-l="en">11-member department, cross-functional</span></dd>
+        <dt><span data-l="ja">ユーザー数</span><span data-l="en">Users</span></dt><dd class="big"><span data-l="ja">月間5万人以上</span><span data-l="en">50K+ / month</span></dd>
+        <dt><span data-l="ja">処理量</span><span data-l="en">Throughput</span></dt><dd><span data-l="ja">LLMリクエスト 1日1万件以上</span><span data-l="en">10K+ LLM requests / day</span></dd>
+        <dt><span data-l="ja">ハルシネーション</span><span data-l="en">Hallucination</span></dt><dd>−35%</dd>
       </dl></aside>
     </article>
 
     <article class="sheet" id="s-02" data-cat="ai cad">
       <div class="body">
-        <div class="code">S-02 · AI &amp; LLM · Civil engineering</div>
-        <h4>ICT construction plan system <span class="jp">ICT施工計画書システム</span></h4>
-        <p class="lede">A civil contractor has to file an ICT construction plan for each job. In this system an LLM drafts the plan from the uploaded design documents using RAG. Engineers correct the draft and export it to Excel in the client's own template, or to PDF or Word.</p>
+        <div class="code"><span data-l="ja">S-02 · AI・LLM · 土木</span><span data-l="en">S-02 · AI &amp; LLM · Civil engineering</span></div>
+        <h4><span data-l="ja">ICT施工計画書システム</span><span data-l="en">ICT construction plan system <span class="jp">ICT施工計画書システム</span></span></h4>
+        <p class="lede"><span data-l="ja">土木の施工会社は、工事ごとにICT施工計画書を提出する必要があります。このシステムでは、アップロードされた設計図書をもとにLLMがRAGで計画書を下書きします。技術者が下書きを修正し、お客様独自のテンプレートのExcel、またはPDF・Wordで出力します。</span><span data-l="en">A civil contractor has to file an ICT construction plan for each job. In this system an LLM drafts the plan from the uploaded design documents using RAG. Engineers correct the draft and export it to Excel in the client's own template, or to PDF or Word.</span></p>
         <ul class="points">
-          <li><b>Design from real data.</b> Before building, I analyzed 26 completed jobs (529 files). Only about 2% of the drawings were machine-readable DXF, so I separated drawing analysis from storage: SFC and P21 files are kept and clearly labelled instead of rejected.</li>
-          <li><b>Review workflow.</b> Separate roles for contractor and engineering staff: intake, AI draft, clarification Q&amp;A, field-by-field corrections with reasons, then approval or rejection. Every step is written to an audit log.</li>
-          <li><b>Training data.</b> Each correction is stored as model output, human fix and reason. A review gate lets only approved corrections become training data.</li>
-          <li><b>Delivery.</b> Keyless CI/CD to Cloud Run through Workload Identity Federation, the full loop verified in production, and 12 design documents (requirements, architecture, ER, API, deployment, disaster recovery).</li>
+          <li><span data-l="ja"><b>実データにもとづく設計。</b>開発前に、完了済みの26工事（529ファイル）を分析しました。機械で読めるDXFは図面全体の約2%しかなかったため、図面の解析と保管を分け、SFCやP21のファイルは受け付けを拒否せず、種別を明示して保管するようにしました。</span><span data-l="en"><b>Design from real data.</b> Before building, I analyzed 26 completed jobs (529 files). Only about 2% of the drawings were machine-readable DXF, so I separated drawing analysis from storage: SFC and P21 files are kept and clearly labelled instead of rejected.</span></li>
+          <li><span data-l="ja"><b>レビューのワークフロー。</b>施工会社と技術スタッフで役割を分け、受付、AIによる下書き、確認のQ&amp;A、理由つきの項目ごとの修正、承認または差し戻しという流れにしました。すべての操作を監査ログに記録します。</span><span data-l="en"><b>Review workflow.</b> Separate roles for contractor and engineering staff: intake, AI draft, clarification Q&amp;A, field-by-field corrections with reasons, then approval or rejection. Every step is written to an audit log.</span></li>
+          <li><span data-l="ja"><b>学習データ。</b>修正ごとに「モデルの出力・人による修正・理由」を保存し、レビューで承認された修正だけを学習データにしています。</span><span data-l="en"><b>Training data.</b> Each correction is stored as model output, human fix and reason. A review gate lets only approved corrections become training data.</span></li>
+          <li><span data-l="ja"><b>デリバリー。</b>Workload Identity FederationによるキーレスなCloud RunへのCI/CDを構築し、本番環境で一連の流れを検証しました。設計書は12種類（要件定義・アーキテクチャ・ER・API・デプロイ・障害復旧）を作成しました。</span><span data-l="en"><b>Delivery.</b> Keyless CI/CD to Cloud Run through Workload Identity Federation, the full loop verified in production, and 12 design documents (requirements, architecture, ER, API, deployment, disaster recovery).</span></li>
         </ul>
         <div class="stack"><span class="tag">Next.js 16</span><span class="tag">TypeScript</span><span class="tag">FastAPI</span><span class="tag">Python 3.11</span><span class="tag">PostgreSQL 16 (Cloud SQL)</span><span class="tag">OpenAI / Anthropic</span><span class="tag">ezdxf · openpyxl · reportlab</span><span class="tag">Cloud Run</span><span class="tag">GitHub Actions + WIF</span></div>
       </div>
       <aside><dl>
-        <dt>Period</dt><dd>Oct 2025 – Jan 2026</dd>
-        <dt>Role</dt><dd>Solo developer, architecture to CI/CD</dd>
-        <dt>Schema</dt><dd class="big">12 tables · 34 endpoints</dd>
-        <dt>Research base</dt><dd>26 jobs · 529 files</dd>
-        <dt>LLM</dt><dd>OpenAI or Anthropic, switchable</dd>
+        <dt><span data-l="ja">期間</span><span data-l="en">Period</span></dt><dd><span data-l="ja">2025年7月〜2026年1月</span><span data-l="en">Jul 2025 – Jan 2026</span></dd>
+        <dt><span data-l="ja">役割</span><span data-l="en">Role</span></dt><dd><span data-l="ja">単独開発者（設計からCI/CDまで）</span><span data-l="en">Solo developer, architecture to CI/CD</span></dd>
+        <dt><span data-l="ja">スキーマ</span><span data-l="en">Schema</span></dt><dd class="big"><span data-l="ja">12テーブル · 34エンドポイント</span><span data-l="en">12 tables · 34 endpoints</span></dd>
+        <dt><span data-l="ja">調査対象</span><span data-l="en">Research base</span></dt><dd><span data-l="ja">26工事 · 529ファイル</span><span data-l="en">26 jobs · 529 files</span></dd>
+        <dt>LLM</dt><dd><span data-l="ja">OpenAI / Anthropicを切り替え可能</span><span data-l="en">OpenAI or Anthropic, switchable</span></dd>
       </dl></aside>
     </article>
 
     <article class="sheet" id="s-03" data-cat="cad biz">
       <div class="body">
-        <div class="code">S-03 · Real estate · Geometry</div>
-        <h4>Land-acquisition toolkit <span class="jp">建売仕入支援ツール</span></h4>
-        <p class="lede">A builder of ready-made houses decides whether to buy a plot by working out how many lots it splits into, what house fits on each, and whether the numbers still make a profit at the asking price. Staff did this by hand in CAD and Excel. I built three connected tools that do it, and each passes its result to the next, so a plot is entered only once.</p>
+        <div class="code"><span data-l="ja">S-03 · 不動産 · 幾何計算</span><span data-l="en">S-03 · Real estate · Geometry</span></div>
+        <h4><span data-l="ja">建売仕入支援ツール</span><span data-l="en">Land-acquisition toolkit <span class="jp">建売仕入支援ツール</span></span></h4>
+        <p class="lede"><span data-l="ja">建売住宅の会社は、土地を何区画に分けられるか、各区画にどんな建物が入るか、売出価格で利益が出るかを検討して仕入を判断します。これまで担当者がCADとExcelで手作業で行っていた検討を、連携する3つのツールにしました。各ツールの結果は次のツールに引き継がれるので、土地の情報は一度入力するだけで済みます。</span><span data-l="en">A builder of ready-made houses decides whether to buy a plot by working out how many lots it splits into, what house fits on each, and whether the numbers still make a profit at the asking price. Staff did this by hand in CAD and Excel. I built three connected tools that do it, and each passes its result to the next, so a plot is entered only once.</span></p>
         <ul class="points">
-          <li><b>Lot division (<span class="jp">区割</span>).</b> Generates frontage and flag-lot (<span class="jp">旗竿地</span>) plans and checks minimum lot area, the 2 m road-frontage rule and the setback for narrow Article 42-2 roads. Every plan's score is shown line by line, so a planner can see why one plan won.</li>
-          <li><b>Building volume (<span class="jp">間取り</span>).</b> Reads the site from an uploaded drawing, then places parking, the building and a 1F / 2F room zoning inside coverage, floor-area and setback limits.</li>
-          <li><b>Purchase decision (<span class="jp">仕入会議資料</span>).</b> Solves for the highest land price that still clears the target margin, by bisection over the full cost model: brokerage, demolition, utilities, construction, sales costs and interest. The ten-page A4 meeting document adds maps, photos, the survey and comparable sales.</li>
-          <li><b>Scope and quality.</b> Sorted every request into MVP, phase 2 or not to build, to fit a fixed budget. Scraping REINS and SUUMO is against their terms, so the tool reads the PDFs staff already download. The DXF, Excel and PDF exports are each checked with a different tool from the one that wrote them, and lazy loading cut the first download from 1.9 MB to 524 KB.</li>
+          <li><span data-l="ja"><b>区割。</b>間口割りと旗竿地の区割案を生成し、最低敷地面積、2mの接道義務、42条2項道路のセットバックを確認します。各案の評価点を項目ごとに表示するので、どの案がなぜ選ばれたかが分かります。</span><span data-l="en"><b>Lot division (<span class="jp">区割</span>).</b> Generates frontage and flag-lot (<span class="jp">旗竿地</span>) plans and checks minimum lot area, the 2 m road-frontage rule and the setback for narrow Article 42-2 roads. Every plan's score is shown line by line, so a planner can see why one plan won.</span></li>
+          <li><span data-l="ja"><b>建物ボリューム（間取り）。</b>アップロードされた図面から敷地を読み取り、建ぺい率・容積率・後退距離の制限内で、駐車場・建物・1階／2階のゾーニングを配置します。</span><span data-l="en"><b>Building volume (<span class="jp">間取り</span>).</b> Reads the site from an uploaded drawing, then places parking, the building and a 1F / 2F room zoning inside coverage, floor-area and setback limits.</span></li>
+          <li><span data-l="ja"><b>仕入判断（仕入会議資料）。</b>仲介手数料・解体・インフラ引き込み・建築・販売経費・金利を含むコストモデル全体を二分法で解き、目標利益率を確保できる最高の土地価格を算出します。A4で10ページの会議資料には、地図・写真・測量図・取引事例も載せます。</span><span data-l="en"><b>Purchase decision (<span class="jp">仕入会議資料</span>).</b> Solves for the highest land price that still clears the target margin, by bisection over the full cost model: brokerage, demolition, utilities, construction, sales costs and interest. The ten-page A4 meeting document adds maps, photos, the survey and comparable sales.</span></li>
+          <li><span data-l="ja"><b>スコープと品質。</b>決まった予算に収めるため、すべての要望をMVP・フェーズ2・開発しないものに仕分けました。REINSやSUUMOのスクレイピングは利用規約に反するため、担当者がすでにダウンロードしているPDFを読み込む方式にしました。DXF・Excel・PDFの出力は、それぞれ書き出しとは別のツールで検証しています。遅延読み込みで、初回のダウンロードを1.9MBから524KBに減らしました。</span><span data-l="en"><b>Scope and quality.</b> Sorted every request into MVP, phase 2 or not to build, to fit a fixed budget. Scraping REINS and SUUMO is against their terms, so the tool reads the PDFs staff already download. The DXF, Excel and PDF exports are each checked with a different tool from the one that wrote them, and lazy loading cut the first download from 1.9 MB to 524 KB.</span></li>
         </ul>
-        <div class="stack"><span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">Polygon geometry</span><span class="tag">Leaflet · GSI tiles</span><span class="tag">pdf.js</span><span class="tag">ExcelJS</span><span class="tag">DXF R12 writer</span><span class="tag">Netlify</span></div>
+        <div class="stack"><span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag"><span data-l="ja">ポリゴン幾何計算</span><span data-l="en">Polygon geometry</span></span><span class="tag"><span data-l="ja">Leaflet · 地理院タイル</span><span data-l="en">Leaflet · GSI tiles</span></span><span class="tag">pdf.js</span><span class="tag">ExcelJS</span><span class="tag">DXF R12 writer</span><span class="tag">Netlify</span></div>
       </div>
       <aside><dl>
-        <dt>Period</dt><dd>Jun – Sep 2025</dd>
-        <dt>Role</dt><dd>Solo, scoping to deployment</dd>
-        <dt>Tools</dt><dd class="big">3 tools · 5 screens</dd>
-        <dt>Exports</dt><dd>DXF (mm, layered) · 6-sheet Excel · 10-page PDF</dd>
-        <dt>Bundle</dt><dd>1.9 MB → 524 KB</dd>
+        <dt><span data-l="ja">期間</span><span data-l="en">Period</span></dt><dd><span data-l="ja">2025年6月〜8月</span><span data-l="en">Jun – Aug 2025</span></dd>
+        <dt><span data-l="ja">役割</span><span data-l="en">Role</span></dt><dd><span data-l="ja">単独（スコープ定義からデプロイまで）</span><span data-l="en">Solo, scoping to deployment</span></dd>
+        <dt><span data-l="ja">ツール</span><span data-l="en">Tools</span></dt><dd class="big"><span data-l="ja">3ツール · 5画面</span><span data-l="en">3 tools · 5 screens</span></dd>
+        <dt><span data-l="ja">出力</span><span data-l="en">Exports</span></dt><dd><span data-l="ja">DXF（mm単位・レイヤー分け）· 6シートのExcel · 10ページのPDF</span><span data-l="en">DXF (mm, layered) · 6-sheet Excel · 10-page PDF</span></dd>
+        <dt><span data-l="ja">バンドル</span><span data-l="en">Bundle</span></dt><dd>1.9 MB → 524 KB</dd>
       </dl></aside>
     </article>
 
     <article class="sheet" id="s-04" data-cat="cad mobile">
       <div class="body">
-        <div class="code">S-04 · Survey · Desktop</div>
-        <h4>Land-CAD GNSS integration</h4>
-        <p class="lede">I connected a survey-grade GNSS receiver to a desktop app that shows a DXF drawing and captures points on site. Points are converted from WGS84 into the site's local coordinates with a 7-parameter Helmert fit (Umeyama / SVD), checked with residuals, leave-one-out validation and point-spread checks.</p>
+        <div class="code"><span data-l="ja">S-04 · 測量 · デスクトップ</span><span data-l="en">S-04 · Survey · Desktop</span></div>
+        <h4><span data-l="ja">Land-CAD GNSS連携</span><span data-l="en">Land-CAD GNSS integration</span></h4>
+        <p class="lede"><span data-l="ja">DXF図面を表示して現場で測点を取得するデスクトップアプリに、測量用のGNSS受信機を接続しました。取得した点は、7パラメータのヘルマート変換（Umeyama法／SVD）でWGS84から現場の局所座標に変換し、残差、Leave-one-out検証、点の配置の偏りのチェックで検証します。</span><span data-l="en">I connected a survey-grade GNSS receiver to a desktop app that shows a DXF drawing and captures points on site. Points are converted from WGS84 into the site's local coordinates with a 7-parameter Helmert fit (Umeyama / SVD), checked with residuals, leave-one-out validation and point-spread checks.</span></p>
         <ul class="points">
-          <li><b>Architecture.</b> A cloud service cannot reach a Bluetooth device on a laptop, so I moved the GNSS connection layer from the Cloud Run backend into Electron's main process (about 1,300 lines of TypeScript) and checked the port byte for byte against the original parser.</li>
-          <li><b>Hardware protocol.</b> Implemented the hardware team's STM32 control protocol through three revisions (v1.1 → v1.3) while the hardware itself was still being brought up.</li>
-          <li><b>RTK FIX.</b> The app stopped at Differential while other software reached RTK FIX. The NTRIP client never sent GGA positions to the VRS caster. I fixed it and replaced a connected / disconnected flag with a four-state connection model for diagnosis.</li>
+          <li><span data-l="ja"><b>アーキテクチャ。</b>クラウドのサービスからはノートPCにつながったBluetooth機器に接続できないため、GNSSの接続層をCloud RunのバックエンドからElectronのメインプロセスに移しました（TypeScriptで約1,300行）。移植後は元のパーサーとバイト単位で一致することを確認しました。</span><span data-l="en"><b>Architecture.</b> A cloud service cannot reach a Bluetooth device on a laptop, so I moved the GNSS connection layer from the Cloud Run backend into Electron's main process (about 1,300 lines of TypeScript) and checked the port byte for byte against the original parser.</span></li>
+          <li><span data-l="ja"><b>ハードウェアのプロトコル。</b>ハードウェア自体がまだ立ち上げ段階にあるなかで、ハードウェアチームのSTM32制御プロトコルを3回の改訂（v1.1からv1.3）に合わせて実装しました。</span><span data-l="en"><b>Hardware protocol.</b> Implemented the hardware team's STM32 control protocol through three revisions (v1.1 → v1.3) while the hardware itself was still being brought up.</span></li>
+          <li><span data-l="ja"><b>RTK FIX。</b>他のソフトではRTK FIXになるのに、このアプリはDifferentialで止まっていました。原因は、NTRIPクライアントがVRSキャスターにGGAの位置を送っていなかったことです。これを直し、接続／切断の2値のフラグを4状態の接続モデルに置き換えて、原因を切り分けやすくしました。</span><span data-l="en"><b>RTK FIX.</b> The app stopped at Differential while other software reached RTK FIX. The NTRIP client never sent GGA positions to the VRS caster. I fixed it and replaced a connected / disconnected flag with a four-state connection model for diagnosis.</span></li>
         </ul>
         <div class="stack"><span class="tag">Electron</span><span class="tag">TypeScript</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Cloud Run</span><span class="tag">Bluetooth SPP</span><span class="tag">NTRIP · RTCM3</span><span class="tag">STM32 AT commands</span></div>
       </div>
       <aside><dl>
-        <dt>Period</dt><dd>Dec 2024 – May 2025</dd>
-        <dt>Role</dt><dd>Solo, with the client's hardware team</dd>
-        <dt>Result</dt><dd class="big">RTK FIX on real hardware</dd>
-        <dt>Transform</dt><dd>7-parameter Helmert, WGS84 → site grid</dd>
+        <dt><span data-l="ja">期間</span><span data-l="en">Period</span></dt><dd><span data-l="ja">2024年12月〜2025年4月</span><span data-l="en">Dec 2024 – Apr 2025</span></dd>
+        <dt><span data-l="ja">役割</span><span data-l="en">Role</span></dt><dd><span data-l="ja">単独（お客様のハードウェアチームと協業）</span><span data-l="en">Solo, with the client's hardware team</span></dd>
+        <dt><span data-l="ja">成果</span><span data-l="en">Result</span></dt><dd class="big"><span data-l="ja">実機でRTK FIXを達成</span><span data-l="en">RTK FIX on real hardware</span></dd>
+        <dt><span data-l="ja">座標変換</span><span data-l="en">Transform</span></dt><dd><span data-l="ja">7パラメータのヘルマート変換（WGS84 → 現場座標）</span><span data-l="en">7-parameter Helmert, WGS84 → site grid</span></dd>
       </dl></aside>
     </article>
 
     <article class="sheet" id="s-05" data-cat="cad mobile">
       <div class="body">
-        <div class="code">S-05 · CAD · Desktop</div>
-        <h4>DXF Platform: 2D civil drawings to 3D LandXML</h4>
-        <p class="lede">A pipeline that takes a 2D Japanese civil-engineering DXF drawing, extracts survey control points and road geometry, builds a Delaunay TIN with IDW-interpolated elevation and writes a LandXML 1.2 surface. A C# WPF desktop client handles upload and preview.</p>
+        <div class="code"><span data-l="ja">S-05 · CAD · デスクトップ</span><span data-l="en">S-05 · CAD · Desktop</span></div>
+        <h4><span data-l="ja">DXFプラットフォーム：2D土木図面から3D LandXMLへ</span><span data-l="en">DXF Platform: 2D civil drawings to 3D LandXML</span></h4>
+        <p class="lede"><span data-l="ja">日本の土木分野の2D DXF図面から測量の基準点と道路の形状を抽出し、IDWで標高を補間したDelaunay TINを作って、LandXML 1.2のサーフェスとして書き出すパイプラインです。アップロードとプレビューはC# WPFのデスクトップクライアントで行います。</span><span data-l="en">A pipeline that takes a 2D Japanese civil-engineering DXF drawing, extracts survey control points and road geometry, builds a Delaunay TIN with IDW-interpolated elevation and writes a LandXML 1.2 surface. A C# WPF desktop client handles upload and preview.</span></p>
         <ul class="points">
-          <li><b>Hidden elevations.</b> In these drawings no entity has a non-zero Z. Elevations are plain-text labels on a separate layer next to the survey points, which is in no public spec. I wrote extraction that matches each label to its nearest point, and the Z values matched the client's reference data.</li>
-          <li><b>Silent CAD failure.</b> BricsCAD and TREND-POINT refused to open the output with no error. The cause was Linux line endings. Normalizing to CRLF fixed it.</li>
-          <li><b>Without the target software.</b> Both CAD tools are Windows-only and I had no copies. I diagnosed both problems from the client's sample DXF and reference XML files and verified the fixes by parsing the output.</li>
+          <li><span data-l="ja"><b>図面に隠れた標高。</b>これらの図面にはZ値がゼロ以外の要素が一つもなく、標高は測点の横にある別レイヤーの文字として書かれていました。公開されている仕様にはない形式です。文字を最寄りの測点に対応づける抽出処理を作り、得られたZ値はお客様の基準データと一致しました。</span><span data-l="en"><b>Hidden elevations.</b> In these drawings no entity has a non-zero Z. Elevations are plain-text labels on a separate layer next to the survey points, which is in no public spec. I wrote extraction that matches each label to its nearest point, and the Z values matched the client's reference data.</span></li>
+          <li><span data-l="ja"><b>エラーが出ないCADの不具合。</b>BricsCADとTREND-POINTが、エラーも出さずに出力ファイルを開けませんでした。原因はLinuxの改行コードで、CRLFに統一して解決しました。</span><span data-l="en"><b>Silent CAD failure.</b> BricsCAD and TREND-POINT refused to open the output with no error. The cause was Linux line endings. Normalizing to CRLF fixed it.</span></li>
+          <li><span data-l="ja"><b>対象ソフトなしでの検証。</b>どちらのCADもWindows専用で、手元にありませんでした。お客様のサンプルDXFと参照用XMLから両方の問題を特定し、出力を解析して修正を確認しました。</span><span data-l="en"><b>Without the target software.</b> Both CAD tools are Windows-only and I had no copies. I diagnosed both problems from the client's sample DXF and reference XML files and verified the fixes by parsing the output.</span></li>
         </ul>
         <div class="stack"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SQLAlchemy 2 (async)</span><span class="tag">ezdxf</span><span class="tag">SciPy Delaunay</span><span class="tag">lxml</span><span class="tag">Cloud Run · Cloud SQL · GCS</span><span class="tag">C# WPF .NET 8</span></div>
       </div>
       <aside><dl>
-        <dt>Period</dt><dd>Jun – Nov 2024</dd>
-        <dt>Role</dt><dd>Solo: backend, GCP, desktop client</dd>
-        <dt>Output</dt><dd class="big">LandXML 1.2</dd>
-        <dt>Opens in</dt><dd>BricsCAD · TREND-POINT</dd>
+        <dt><span data-l="ja">期間</span><span data-l="en">Period</span></dt><dd><span data-l="ja">2024年6月〜12月</span><span data-l="en">Jun – Dec 2024</span></dd>
+        <dt><span data-l="ja">役割</span><span data-l="en">Role</span></dt><dd><span data-l="ja">単独：バックエンド・GCP・デスクトップクライアント</span><span data-l="en">Solo: backend, GCP, desktop client</span></dd>
+        <dt><span data-l="ja">出力</span><span data-l="en">Output</span></dt><dd class="big">LandXML 1.2</dd>
+        <dt><span data-l="ja">対応ソフト</span><span data-l="en">Opens in</span></dt><dd>BricsCAD · TREND-POINT</dd>
       </dl></aside>
     </article>
   </div>
@@ -429,38 +446,67 @@ footer{margin-top:72px; padding-top:16px; border-top:1.5px solid var(--ink); dis
 
 <!-- ======================= BACKGROUND ======================= -->
 <section aria-labelledby="early-h">
-  <div class="shead"><h2 id="early-h">Background</h2><span class="label">Freelance full-stack developer · Nov 2017 – Sep 2023</span></div>
+  <div class="shead"><h2 id="early-h"><span data-l="ja">これまでの経歴</span><span data-l="en">Background</span></h2><span class="label"><span data-l="ja">フリーランスのフルスタック開発者 · 2017年11月〜2023年9月</span><span data-l="en">Freelance full-stack developer · Nov 2017 – Sep 2023</span></span></div>
   <div class="bg">
-    <p>Before moving into AI, I spent six years as a freelance full-stack developer, building web applications, web systems, mobile apps and desktop applications for clients, and fixing problems in companies' existing systems and databases. That is where I learned to work directly with clients and take a project from requirements to launch on my own.</p>
+    <p><span data-l="ja">AIの分野に移る前の6年間は、フリーランスのフルスタック開発者として、お客様向けにWebアプリ、Webシステム、モバイルアプリ、デスクトップアプリを開発し、企業の既存システムやデータベースの不具合修正も行っていました。お客様と直接やり取りし、要件定義からリリースまで一人で進める力は、この時期に身につけたものです。</span><span data-l="en">Before moving into AI, I spent six years as a freelance full-stack developer, building web applications, web systems, mobile apps and desktop applications for clients, and fixing problems in companies' existing systems and databases. That is where I learned to work directly with clients and take a project from requirements to launch on my own.</span></p>
     <dl>
-      <dt>Projects</dt><dd>75 for clients, delivered solo</dd>
-      <dt>Range</dt><dd>Web systems · mobile · desktop · e-commerce</dd>
-      <dt>Also</dt><dd>Fixing existing systems and databases</dd>
+      <dt><span data-l="ja">案件数</span><span data-l="en">Projects</span></dt><dd><span data-l="ja">75件（すべて単独で納品）</span><span data-l="en">75 for clients, delivered solo</span></dd>
+      <dt><span data-l="ja">領域</span><span data-l="en">Range</span></dt><dd><span data-l="ja">Webシステム · モバイル · デスクトップ · EC</span><span data-l="en">Web systems · mobile · desktop · e-commerce</span></dd>
+      <dt><span data-l="ja">その他</span><span data-l="en">Also</span></dt><dd><span data-l="ja">既存システム・データベースの改修</span><span data-l="en">Fixing existing systems and databases</span></dd>
     </dl>
   </div>
 </section>
 
 <!-- ======================= SKILLS ======================= -->
 <section aria-labelledby="skills-h">
-  <div class="shead"><h2 id="skills-h">Toolkit</h2><span class="label">Used in production on the projects above</span></div>
+  <div class="shead"><h2 id="skills-h"><span data-l="ja">技術スタック</span><span data-l="en">Toolkit</span></h2><span class="label"><span data-l="ja">上記のプロジェクトの本番環境で使用</span><span data-l="en">Used in production on the projects above</span></span></div>
   <div class="skills">
-    <div class="skill"><h3>AI / LLM</h3><p>OpenAI and Anthropic APIs, LangChain, LangGraph, RAG, embeddings, vector databases, multi-agent orchestration, prompt engineering, inference pipelines</p></div>
-    <div class="skill"><h3>Frontend</h3><p>React 18 / 19, Next.js 15 / 16 (App Router), TypeScript, Tailwind CSS, Vite, Recharts, Leaflet, streaming UI</p></div>
-    <div class="skill"><h3>Backend</h3><p>FastAPI, Pydantic, SQLAlchemy 2.0, Node.js, Express, Redis queues and workers, REST APIs, JWT auth</p></div>
-    <div class="skill"><h3>Mobile &amp; desktop</h3><p>React Native (iOS / Android), Kotlin services, Firebase Cloud Messaging, Electron, C# WPF (.NET 8), App Store and Google Play release</p></div>
-    <div class="skill"><h3>Cloud &amp; delivery</h3><p>GCP (Cloud Run, Cloud SQL, Secret Manager, GCS, Workload Identity Federation), AWS S3, Vercel, Netlify, Docker, GitHub Actions, Codemagic, nginx, PM2</p></div>
-    <div class="skill"><h3>Data &amp; domain</h3><p>PostgreSQL, Supabase, Firestore, Redis · DXF, LandXML, TIN, GNSS / NTRIP / RTCM3 · Playwright, ReportLab, openpyxl</p></div>
+    <div class="skill"><h3>AI / LLM</h3><p><span data-l="ja">OpenAI・Anthropic API、LangChain、LangGraph、RAG、埋め込み、ベクトルデータベース、マルチエージェントのオーケストレーション、プロンプトエンジニアリング、推論パイプライン</span><span data-l="en">OpenAI and Anthropic APIs, LangChain, LangGraph, RAG, embeddings, vector databases, multi-agent orchestration, prompt engineering, inference pipelines</span></p></div>
+    <div class="skill"><h3><span data-l="ja">フロントエンド</span><span data-l="en">Frontend</span></h3><p><span data-l="ja">React 18 / 19、Next.js 15 / 16（App Router）、TypeScript、Tailwind CSS、Vite、Recharts、Leaflet、ストリーミングUI</span><span data-l="en">React 18 / 19, Next.js 15 / 16 (App Router), TypeScript, Tailwind CSS, Vite, Recharts, Leaflet, streaming UI</span></p></div>
+    <div class="skill"><h3><span data-l="ja">バックエンド</span><span data-l="en">Backend</span></h3><p><span data-l="ja">FastAPI、Pydantic、SQLAlchemy 2.0、Node.js、Express、Redisのキューとワーカー、REST API、JWT認証</span><span data-l="en">FastAPI, Pydantic, SQLAlchemy 2.0, Node.js, Express, Redis queues and workers, REST APIs, JWT auth</span></p></div>
+    <div class="skill"><h3><span data-l="ja">モバイル・デスクトップ</span><span data-l="en">Mobile &amp; desktop</span></h3><p><span data-l="ja">React Native（iOS / Android）、Kotlinのサービス、Firebase Cloud Messaging、Electron、C# WPF（.NET 8）、App Store・Google Playへのリリース</span><span data-l="en">React Native (iOS / Android), Kotlin services, Firebase Cloud Messaging, Electron, C# WPF (.NET 8), App Store and Google Play release</span></p></div>
+    <div class="skill"><h3><span data-l="ja">クラウド・デリバリー</span><span data-l="en">Cloud &amp; delivery</span></h3><p><span data-l="ja">GCP（Cloud Run、Cloud SQL、Secret Manager、GCS、Workload Identity Federation）、AWS S3、Vercel、Netlify、Docker、GitHub Actions、Codemagic、nginx、PM2</span><span data-l="en">GCP (Cloud Run, Cloud SQL, Secret Manager, GCS, Workload Identity Federation), AWS S3, Vercel, Netlify, Docker, GitHub Actions, Codemagic, nginx, PM2</span></p></div>
+    <div class="skill"><h3><span data-l="ja">データ・業務領域</span><span data-l="en">Data &amp; domain</span></h3><p><span data-l="ja">PostgreSQL、Supabase、Firestore、Redis · DXF、LandXML、TIN、GNSS / NTRIP / RTCM3 · Playwright、ReportLab、openpyxl</span><span data-l="en">PostgreSQL, Supabase, Firestore, Redis · DXF, LandXML, TIN, GNSS / NTRIP / RTCM3 · Playwright, ReportLab, openpyxl</span></p></div>
   </div>
 </section>
 
 <footer>
-  <span>Motoyasu Suzuki · Senior Full-Stack &amp; AI Engineer</span>
-  <span>Updated October 2026</span>
+  <span><span data-l="ja">鈴木 元康 · シニア フルスタック &amp; AIエンジニア</span><span data-l="en">Motoyasu Suzuki · Senior Full-Stack &amp; AI Engineer</span></span>
+  <span><span data-l="ja">2026年10月更新</span><span data-l="en">Updated October 2026</span></span>
 </footer>
 </div>
 
 <script>
 (function(){
+  var root = document.documentElement;
+  var lang = 'ja';
+  try { if (/(^|[?&])lang=en(&|$)/.test(location.search) || location.hash === '#en') lang = 'en'; } catch(e){}
+  var T = {
+    ja: { title:'鈴木 元康 ポートフォリオ', copy:'コピー', copied:'コピーしました', manual:'Ctrl+Cでコピー',
+          desc:'シニア フルスタック & AIエンジニア。AI SaaS・RAG・モバイルアプリ・業務システム・CAD／測量ソフトなど、ゼロから構築した本番システムの事例集。' },
+    en: { title:'Motoyasu Suzuki Portfolio', copy:'Copy', copied:'Copied', manual:'Press Ctrl+C',
+          desc:'Senior Full-Stack & AI Engineer. Case studies of production systems built from scratch: AI SaaS, RAG, mobile apps, business systems, CAD and survey software.' }
+  };
+  var copy = document.getElementById('copy-email');
+  var links = document.querySelectorAll('.langsw a');
+  function setLang(l){
+    lang = l;
+    root.setAttribute('data-lang', l);
+    root.lang = l;
+    document.title = T[l].title;
+    var m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute('content', T[l].desc);
+    copy.textContent = T[l].copy;
+    links.forEach(function(a){ if (a.dataset.set === l) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current'); });
+  }
+  links.forEach(function(a){
+    a.addEventListener('click', function(ev){
+      ev.preventDefault();
+      setLang(a.dataset.set);
+      try { history.replaceState(null, '', a.dataset.set === 'en' ? '?lang=en' : location.pathname); } catch(e){}
+    });
+  });
+  setLang(lang);
+
   var buttons = document.querySelectorAll('.filters button');
   var rows = document.querySelectorAll('#reg-body tr');
   var sheets = document.querySelectorAll('.sheet');
@@ -474,18 +520,15 @@ footer{margin-top:72px; padding-top:16px; border-top:1.5px solid var(--ink); dis
   }
   buttons.forEach(function(b){ b.addEventListener('click', function(){ apply(b.dataset.f); }); });
 
-  var copy = document.getElementById('copy-email');
   copy.addEventListener('click', function(){
     var text = copy.dataset.copy;
-    function done(){ copy.textContent = 'Copied'; setTimeout(function(){ copy.textContent = 'Copy'; }, 1600); }
-    try {
-      navigator.clipboard.writeText(text).then(done, function(){ select(); });
-    } catch(e){ select(); }
+    function done(){ copy.textContent = T[lang].copied; setTimeout(function(){ copy.textContent = T[lang].copy; }, 1600); }
     function select(){
-      var r = document.createRange(); r.selectNodeContents(copy.parentNode.firstChild.nodeType === 3 ? copy.parentNode : copy.parentNode);
+      var r = document.createRange(); r.selectNodeContents(copy.parentNode.firstChild);
       var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-      copy.textContent = 'Press Ctrl+C';
+      copy.textContent = T[lang].manual;
     }
+    try { navigator.clipboard.writeText(text).then(done, select); } catch(e){ select(); }
   });
 })();
 </script>
